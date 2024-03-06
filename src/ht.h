@@ -4,6 +4,7 @@
 #include <stdbool.h>
 
 #define BUCKETS_COUNT 1024
+#define TOMBSTONE -1
 
 struct hash_table_bucket
 {

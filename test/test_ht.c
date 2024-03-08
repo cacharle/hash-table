@@ -6,7 +6,7 @@ Test(hash_table, new)
 {
     hash_table *ht = hash_table_new();
     cr_assert_not_null(ht);
-    for (size_t i = 0; i < BUCKETS_COUNT; i++)
+    for (size_t i = 0; i < ht->capacity; i++)
     {
         cr_assert_null(ht->buckets[i].key);
         cr_assert_eq(ht->buckets[i].value, 0);

@@ -1,9 +1,10 @@
 #ifndef __HT_H__
 #define __HT_H__
 
+#define _XOPEN_SOURCE 500
+#include <stdlib.h>
 #include <stdbool.h>
 
-#define BUCKETS_COUNT 1024
 #define TOMBSTONE -1
 
 struct hash_table_bucket
@@ -14,7 +15,9 @@ struct hash_table_bucket
 
 typedef struct
 {
-    struct hash_table_bucket buckets[BUCKETS_COUNT];
+    size_t capacity;
+    size_t occupied_count;
+    struct hash_table_bucket *buckets;
 } hash_table;
 
 hash_table *hash_table_new(void);
